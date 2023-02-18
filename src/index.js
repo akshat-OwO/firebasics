@@ -4,6 +4,10 @@ import {
     addDoc, collection, deleteDoc, doc, getDoc, getFirestore, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where
 } from 'firebase/firestore';
 
+import {
+    getAuth
+} from 'firebase/auth';
+
 const firebaseConfig = {
     apiKey: "AIzaSyApUNPNrr-NiTc0hl3C-60cw7knfu0sQD0",
     authDomain: "something-unique-9b932.firebaseapp.com",
@@ -19,6 +23,7 @@ initializeApp(firebaseConfig);
 
 // init services
 const db = getFirestore();
+const auth = getAuth();
 
 // collection ref
 const colRef = collection(db, 'books');
