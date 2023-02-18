@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 
 import {
-    addDoc, collection, deleteDoc, doc, getFirestore, onSnapshot, orderBy, query, serverTimestamp, where
+    addDoc, collection, deleteDoc, doc, getDoc, getFirestore, onSnapshot, orderBy, query, serverTimestamp, where
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -61,4 +61,11 @@ deleteBookForm.addEventListener('submit', (e) => {
         .then(() => {
             deleteBookForm.reset();
         });
+});
+
+// get a single document
+const docRef = doc(db, 'books', 'k4z2I7PWw2vdHeFbu6It');
+
+onSnapshot(docRef, (doc) => {
+    console.log(doc.data(), doc.id);
 });
